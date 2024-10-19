@@ -20,7 +20,7 @@ setup(
     tests_require=['pytest'],
     entry_points={
         'console_scripts': [
-            'read_qr_node=robot_vision.read_qr_node:main'
+            'read_qr_node=robot_vision.read_qr_node:main',
         ],
     },
 )

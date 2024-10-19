@@ -14,7 +14,7 @@ from message_filters import Subscriber, TimeSynchronizer
 class ReadQRs(Node):
 
     def __init__(self):
-        super().__init__("read_qrs")
+        super().__init__("read_qr_node")
         self.flag = False
 
         self.subscription = self.create_subscription(Image, '/color/image_raw', self.img_callback, 10)
@@ -30,11 +30,7 @@ class ReadQRs(Node):
                 f.write(str(decodedText)+ '\n')
                 sys.exit()
 
-
-
-            
-
-        
+     
 def main(args=None):
     rclpy.init(args=args)
     read_qrs = ReadQRs()
