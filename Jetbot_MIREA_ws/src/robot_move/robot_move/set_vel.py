@@ -10,11 +10,10 @@ class VelPublisher(Node):
     def __init__(self):
         super().__init__("set_vel")
         self.publlisher = self.create_publisher(Twist, 'cmd_vel', 10)
-        timer_period = 0.5
+        timer_period = 0.1
         self.timer = self.create_timer(timer_period, self.vel_callback)    
         self.vel_L = 0.0
         self.vel_A = 0.0
-
 
     def vel_callback(self):
         msg = Twist()

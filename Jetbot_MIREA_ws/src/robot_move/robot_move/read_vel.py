@@ -15,12 +15,12 @@ class VelSubscriber(Node):
 
     def vel_callback(self, msg):
 
-        data2 = '*{};{};#'.format(msg.linear.x, msg.angular.z)
+        data2 = '*{};{};#'.format(msg.angular.z, msg.linear.x)
         data2 = '{}'.format(data2)
         data2 = str.encode(data2)
 
         self.ser.write(data2)
-        self.get_logger().info('*{};{};#'.format(msg.linear.x, msg.angular.z))
+        self.get_logger().info('*{};{};#'.format(msg.angular.z, msg.linear.x))
 
     #def setVel(self, vel_A, vel_L):
     #    self.vel_A = vel_A
