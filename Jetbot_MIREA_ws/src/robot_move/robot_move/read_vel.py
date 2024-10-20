@@ -9,16 +9,18 @@ class VelSubscriber(Node):
     def __init__(self):
         super().__init__("read_vel")
         self.subscription = self.create_subscription(Twist, 'cmd_vel', self.vel_callback, 10)
-        timer_period = 0.5
-        self.timer = self.create_timer(timer_period, self.vel_callback)    
+        #timer_period = 0.5
+        #self.timer = self.create_timer(timer_period, self.vel_callback)    
         self.ser = serial.Serial('/dev/ttyUSB1', 115200)
 
-    def vel_callback(self, data):
+    def vel_callback(self, msg):
 
-        data2 = '*{};{};#'.format(data.linear.x, data.angular.z)
-        data2 = b'{}'.format(data2) 
+        data2 = '*{};{};#'.format(msg.linear.x, msg.angular.z)
+        data2 = '{}'.format(data2)
+        data2 = str.encode(data2)
+
         self.ser.write(data2)
-        self.get_logger().info('*{};{};#'.format(data.linear.x, data.angular.z))
+        self.get_logger().info('*{};{};#'.format(msg.linear.x, msg.angular.z))
 
     #def setVel(self, vel_A, vel_L):
     #    self.vel_A = vel_A

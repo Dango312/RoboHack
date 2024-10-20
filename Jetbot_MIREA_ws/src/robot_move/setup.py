@@ -22,6 +22,7 @@ setup(
         'console_scripts': [
             'read_vel = robot_move.read_vel:main',
             'set_vel = robot_move.set_vel:main',
+            'lidar_subscription = robot_move.lidar_subscription:main',
         ],
     },
 )
