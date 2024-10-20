@@ -9,8 +9,8 @@ class VelSubscriber(Node):
     def __init__(self):
         super().__init__("read_vel")
         self.subscription = self.create_subscription(Twist, 'cmd_vel', self.vel_callback, 10)
-        #timer_period = 0.5
-        #self.timer = self.create_timer(timer_period, self.vel_callback)    
+        timer_period = 0.1
+        self.timer = self.create_timer(timer_period, self.vel_callback)    
         self.ser = serial.Serial('/dev/ttyUSB1', 115200)
 
     def vel_callback(self, msg):

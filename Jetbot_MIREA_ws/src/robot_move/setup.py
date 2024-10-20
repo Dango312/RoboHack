@@ -20,10 +20,10 @@ setup(
     tests_require=['pytest'],
     entry_points={
         'console_scripts': [
-            'read_vel = robot_move.read_vel:main',
-            'set_vel = robot_move.set_vel:main',
-            'lidar_subscription = robot_move.lidar_subscription:main',
-            #'odometry_publisher = robot_move.odometry_publisher:main',
+            'read_vel=robot_move.read_vel:main',
+            'set_vel=robot_move.set_vel:main',
+            'lidar_subscription=robot_move.lidar_subscription:main',
+            'odometry_publisher=robot_move.odometry_publisher:main',
         ],
     },
 )
